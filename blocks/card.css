@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card__description {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 25px 20px 25px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 29.05px;
+}
+
+.card__like-button {
+  background: transparent url(../images/heart.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card__like-button:hover {
+  opacity: 50%;
+}
+
+.card__list-description {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  max-width: 219px;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
