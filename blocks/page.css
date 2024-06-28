@@ -2,6 +2,7 @@
   font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: black;
   color: white;
+  line-height: 1.15;
 }
 
 .page__section {
@@ -12,23 +13,13 @@
 }
 
 .page__content {
-  /*margin-left: 200px;
-  margin-right:200px;*/
   display: flex;
   flex-direction: column;
-  margin-top: 74px;
-  /*min-height: 100vh;
-  width:100%;*/
+  min-height: 100vh;
 }
 
-@media screen and (max-width: 480px) {
-  .page__content {
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
+@media screen and (max-width: 900px) {
   .page__section {
-    max-width: calc(100% -19px);
-    padding-top: 28px;
+    width: calc(100% - 40px);
   }
 }
