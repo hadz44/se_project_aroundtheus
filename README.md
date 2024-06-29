@@ -11,5 +11,3 @@
 5.Flexbox
 
 # As for my Github link:https://github.com/hadz44/se_project_aroundtheus/tree/main/se_project_aroundtheus
-
-And for my screenshots:http://sc.com.ly/show/3705d983-efa7-47a2-96b3-d72b7fef9648
