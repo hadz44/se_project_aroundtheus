@@ -14,7 +14,7 @@
   display: flex;
   background-color: white;
   color: black;
-  padding: 25px 20px 25px;
+  padding: 25px 20px;
   align-items: center;
   justify-content: space-between;
   border-radius: 0 0 10px 10px;
@@ -34,7 +34,8 @@
 }
 
 .card__like-button:hover {
-  opacity: 50%;
+  cursor: pointer;
+  background: transparent url(../images/Vector-hover.svg) center no-repeat;
 }
 
 .card__list-description {
