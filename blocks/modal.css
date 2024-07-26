@@ -124,6 +124,10 @@
     margin-left: 22px;
   }
 
+  .modal__heading {
+    margin: 25px 22px 75px;
+  }
+
   .modal__button {
     width: 238px;
     height: 46px;
