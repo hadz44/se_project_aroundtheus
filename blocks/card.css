@@ -48,3 +48,15 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.card__title {
+  margin: 0;
+  max-width: 220px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

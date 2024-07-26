@@ -17,9 +17,11 @@
 }
 
 .modal__container {
-  margin: auto;
-  padding: 36px;
+  margin: 0;
+  padding: 0;
   position: relative;
+  width: 430px;
+  height: 330px;
   background-color: #fff;
   border-radius: 10px;
 }
