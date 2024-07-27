@@ -105,9 +105,7 @@
   .modal__close {
     left: 264.62px;
     width: 26px;
-    height: 26px;
-    top: -72.62px;
-    bottom: 458.62px;
+    top: -52.62px;
     right: 18.62px;
   }
 
@@ -119,6 +117,7 @@
   .modal__container {
     width: 282px;
     height: 322px;
+    top: -32px;
   }
 
   .modal__form-input {
