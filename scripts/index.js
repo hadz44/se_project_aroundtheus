@@ -86,3 +86,9 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
+
+initialCards.forEach((cardData)=>{
+cardsWrap.prepend(getCardElement(cardData));
+
+
+};
