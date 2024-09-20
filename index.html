@@ -3,76 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Around the U.S.</title>
-    <link href="./pages/index.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
+
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
           class="header__logo"
-          src="./images/VectorAUSA.svg"
-          alt="Around the U.S. "
+          src="./images/header-logo.svg"
+          alt="Around the U.S. logo"
         />
       </header>
-      <main class="content page__section">
-        <section class="profile">
+
+      <main class="main">
+        <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.png"
-            alt="avatar"
+            src="./images/jacques-cousteau.jpg"
+            alt="Avater"
             class="profile__image"
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               type="button"
+              aria-label=""
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button"></button>
+
+          <button
+            type="button"
+            aria-label=""
+            class="profile__add-button"
+          ></button>
         </section>
+
         <section class="cards page__section">
           <ul class="cards__list"></ul>
         </section>
       </main>
+
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2024 Hadi Frifer</p>
       </footer>
     </div>
 
-    <div class="modal" id="profile-edit-modal">
+    <!--edit modal-->
+    <div class="modal modal_edit" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal__close"></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form">
+        <div class="modal__close" id="profile-edit-modal-close"></div>
+        <p class="modal__heading">Edit profile</p>
+
+        <form class="modal__form" id="profile-edit-form">
           <input
+            class="modal__title modal__input"
             type="text"
-            name="title"
+            name="modal-title"
             id="profile-title-input"
             placeholder="Name"
-            class="modal__title modal__form-input"
           />
           <input
+            class="modal__description modal__input"
             type="text"
-            name="card__description"
+            name="description"
             id="profile-description-input"
             placeholder="Description"
-            class="modal__description modal__form-input"
           />
-          <button class="button modal__button" type="submit">Save</button>
+          <button type="submit" class="modal__button">Save</button>
         </form>
+      </div>
+    </div>
+
+    <!--add modal-->
+    <div class="modal modal_add" id="card-add-modal">
+      <div class="modal__container">
+        <div class="modal__close" id="profile-add-modal-close"></div>
+        <p class="modal__heading">New Place</p>
+
+        <form class="modal__form" id="card-add-form">
+          <input
+            class="modal__title modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            id="card-title-input"
+            placeholder="Title"
+          />
+          <input
+            class="modal__description modal__input modal__input_type_url"
+            type="text"
+            name="url"
+            id="card-url-input"
+            placeholder="Image URL"
+          />
+          <button type="submit" class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!--image preview modal-->
+    <div class="modal model_preview" id="image-preview-modal">
+      <div class="modal__preview-container">
+        <div class="modal__close" id="preview-modal-close"></div>
+        <img class="modal__preview-image" src="" alt="" />
+        <p class="modal__image-caption"></p>
       </div>
     </div>
 
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
+        <button
+          type="button"
+          aria-label=""
+          class="card__delete-button"
+        ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <button
+            type="button"
+            aria-label=""
+            class="card__like-button"
+          ></button>
         </div>
       </li>
     </template>

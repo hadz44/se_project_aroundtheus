@@ -1,29 +1,23 @@
 .cards {
+  margin-top: 51px;
   margin-bottom: 67px;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   color: #000000;
 }
 
 .cards__list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  list-style-type: none;
   padding: 0;
   margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  justify-content: center;
+  gap: 20px 17px;
+  list-style-type: none;
 }
 
-@media screen and (max-width: 480px) {
-  .cards__list {
-    max-width: 282px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
+@media screen and (max-width: 900px) {
   .cards {
-    margin-top: 36px;
-    max-width: 282px;
-    margin-bottom: 48px;
+    margin: 36px 19px 0;
   }
 }
