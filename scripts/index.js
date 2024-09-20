@@ -63,7 +63,7 @@ const previewCaption = document.querySelector(".modal__image-caption");
 
 //Function
 function closePopUp(modal) {
-  modal.classList.toggle("modal_opened");
+  modal.classList.remove("modal_opened");
 }
 function openPopUp(modal) {
   modal.classList.add("modal_opened");
