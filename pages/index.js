@@ -25,6 +25,10 @@ const initialCards = [
     name: "Vanoise National Park",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   },
+  {
+    name: "Lago di Braise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+  },
 ];
 
 console.log(initialCards);
