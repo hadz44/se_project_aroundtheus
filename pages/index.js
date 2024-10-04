@@ -1,22 +1,16 @@
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
-
 const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
-  // Set a breakpoint here
   {
     name: "Lake Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
   },
-  // Set a breakpoint here
   {
     name: "Bald Mountains",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
   },
-  // Set a breakpoint here
   {
     name: "Latemar",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
@@ -31,9 +25,7 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
-/*Elements*/
+/* Elements */
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addCardButton = document.querySelector("#add-card-button");
@@ -61,8 +53,9 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
 const imageTitle = document.querySelector("#preview-title");
 const cardSelector = "#card-template";
+const cardListEl = document.querySelector(".cards__list");
 
-/*Function*/
+/* Function */
 
 function closePopupEsc(e) {
   if (e.key === "Escape") {
@@ -89,16 +82,6 @@ function openPopup(modal) {
   modal.addEventListener("mousedown", closePopupOverlay);
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
-
-function getCardElement(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
-  return card.getView();
-}
-
 function handleImageClick(card) {
   previewImage.src = card.link;
   previewImage.alt = card.name;
@@ -106,7 +89,7 @@ function handleImageClick(card) {
   openPopup(previewImageModal);
 }
 
-/*Event Handler*/ ``;
+/* Event Handler */
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -119,12 +102,13 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  console.log("Card Data:", { name, link }); // Debugging: Log card data
   renderCard({ name, link }, cardsWrap);
   closePopup(addCardModal);
   e.target.reset();
 }
 
-/*Event Listeners*/
+/* Event Listeners */
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -144,8 +128,6 @@ previewImageModalClose.addEventListener("click", () =>
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
-
 const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -154,7 +136,45 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(config, profileEditForm);
-const addFormValidator = new FormValidator(config, addCardForm);
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+/* Render Card Function */
+function renderCard(card, container) {
+  const template = document.querySelector(cardSelector);
+  console.log("Template:", template); // Debugging: Log template element
+  if (template) {
+    const clone = document.importNode(template.content, true);
+    clone.querySelector(".card__image").src = card.link;
+    clone.querySelector(".card__image").alt = card.name;
+    clone.querySelector(".card__description").textContent = card.name;
+
+    // Add delete button functionality
+    const deleteButton = clone.querySelector(".card__delete-button");
+    deleteButton.addEventListener("click", () => {
+      clone.remove();
+    });
+
+    // Add like button functionality
+    const likeButton = clone.querySelector(".card__like-button");
+    likeButton.addEventListener("click", () => {
+      likeButton.classList.toggle("card__like-button_active");
+    });
+
+    console.log("Card Clone:", clone); // Debugging: Log card clone
+    container.appendChild(clone);
+    console.log("Card appended to container:", container); // Debugging: Log container
+  } else {
+    console.error("Card template not found");
+  }
+}
+
+/* Render Initial Cards */
+function renderInitialCards() {
+  initialCards.forEach((card) => {
+    renderCard(card, cardsWrap);
+  });
+}
+
+/* Initialize */
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
+  renderInitialCards();
+});

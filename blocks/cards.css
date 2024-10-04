@@ -10,6 +10,7 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
+  z-index: 0;
 }
 
 @media screen and (max-width: 480px) {
