@@ -144,12 +144,15 @@ function renderCard(card, container) {
     const clone = document.importNode(template.content, true);
     clone.querySelector(".card__image").src = card.link;
     clone.querySelector(".card__image").alt = card.name;
-    clone.querySelector(".card__description").textContent = card.name;
+    clone.querySelector(".card__title").textContent = card.name;
 
     // Add delete button functionality
     const deleteButton = clone.querySelector(".card__delete-button");
     deleteButton.addEventListener("click", () => {
-      clone.remove();
+      const cardElement = deleteButton.closest(".card");
+      if (cardElement) {
+        cardElement.remove();
+      }
     });
 
     // Add like button functionality
