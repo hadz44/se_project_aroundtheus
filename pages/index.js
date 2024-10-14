@@ -1,3 +1,13 @@
+import {
+  showInputError,
+  hideInputError,
+  checkInputValidity,
+  hasInvalidInput,
+  toggleButtonState,
+  setEventListeners,
+  enableValidation,
+} from "./validity.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -137,14 +147,14 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-/* Render Card Function */
-function renderCard(card, container) {
+/* Create Card Function */
+function createCard(card) {
   const template = document.querySelector(cardSelector);
-  console.log("Template:", template); // Debugging: Log template element
   if (template) {
     const clone = document.importNode(template.content, true);
-    clone.querySelector(".card__image").src = card.link;
-    clone.querySelector(".card__image").alt = card.name;
+    const imageElement = clone.querySelector(".card__image");
+    imageElement.src = card.link;
+    imageElement.alt = card.name;
     clone.querySelector(".card__title").textContent = card.name;
 
     // Add delete button functionality
@@ -163,16 +173,23 @@ function renderCard(card, container) {
     });
 
     // Add image click functionality
-    const imageElement = clone.querySelector(".card__image");
     imageElement.addEventListener("click", () => {
       handleImageClick(card);
     });
 
-    console.log("Card Clone:", clone); // Debugging: Log card clone
-    container.appendChild(clone);
-    console.log("Card appended to container:", container); // Debugging: Log container
+    return clone;
   } else {
     console.error("Card template not found");
+    return null;
+  }
+}
+
+/* Render Card Function */
+function renderCard(card, container) {
+  const cardElement = createCard(card);
+  if (cardElement) {
+    container.prepend(cardElement);
+    console.log("Card prepended to container:", container); // Debugging: Log container
   }
 }
 
@@ -189,82 +206,3 @@ document.addEventListener("DOMContentLoaded", () => {
   renderInitialCards();
   enableValidation(config);
 });
-
-// validity.js
-
-function showInputError(formElement, inputElement, errorMessage, options) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.add(options.inputErrorClass);
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add(options.errorClass);
-}
-
-function hideInputError(formElement, inputElement, options) {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  inputElement.classList.remove(options.inputErrorClass);
-  errorElement.classList.remove(options.errorClass);
-  errorElement.textContent = "";
-}
-
-function checkInputValidity(formElement, inputElement, options) {
-  if (!inputElement.validity.valid) {
-    showInputError(
-      formElement,
-      inputElement,
-      inputElement.validationMessage,
-      options
-    );
-  } else {
-    hideInputError(formElement, inputElement, options);
-  }
-}
-
-function hasInvalidInput(inputList) {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
-function toggleButtonState(inputList, buttonElement, options) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(options.inactiveButtonClass);
-    buttonElement.disabled = true;
-  } else {
-    buttonElement.classList.remove(options.inactiveButtonClass);
-    buttonElement.disabled = false;
-  }
-}
-
-function setEventListeners(formElement, options) {
-  const inputList = Array.from(
-    formElement.querySelectorAll(options.inputSelector)
-  );
-  const buttonElement = formElement.querySelector(options.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, options);
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement, options);
-      toggleButtonState(inputList, buttonElement, options);
-    });
-  });
-}
-
-function enableValidation(options) {
-  const formList = Array.from(document.querySelectorAll(options.formSelector));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-    setEventListeners(formElement, options);
-  });
-}
-
-export {
-  showInputError,
-  hideInputError,
-  checkInputValidity,
-  hasInvalidInput,
-  toggleButtonState,
-  setEventListeners,
-  enableValidation,
-};
