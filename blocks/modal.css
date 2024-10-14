@@ -106,13 +106,13 @@
   opacity: 0.6s;
 }
 
-.modal__input {
+.modal__input:last-of-type {
   max-width: 358px;
   height: 27.26px;
   top: 306px;
   left: 461px;
   color: #000;
-  margin-bottom: 29.27px;
+  margin-bottom: 0;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -185,8 +185,9 @@
   .modal__button {
     max-width: 238px;
     height: 46px;
-    padding: 0;
     font-size: 14px;
+    margin-top: 48px;
+    line-height: 16.94px;
   }
 }
 
