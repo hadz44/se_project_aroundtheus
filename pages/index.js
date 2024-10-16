@@ -1,12 +1,4 @@
-import {
-  showInputError,
-  hideInputError,
-  checkInputValidity,
-  hasInvalidInput,
-  toggleButtonState,
-  setEventListeners,
-  enableValidation,
-} from "./validity.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -35,7 +27,9 @@ const initialCards = [
   },
 ];
 
-/* Elements */
+console.log(initialCards);
+
+/*Elements*/
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const addCardButton = document.querySelector("#add-card-button");
@@ -63,9 +57,8 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageModalClose = document.querySelector("#preview-modal-close");
 const imageTitle = document.querySelector("#preview-title");
 const cardSelector = "#card-template";
-const cardListEl = document.querySelector(".cards__list");
 
-/* Function */
+/*Function*/
 
 function closePopupEsc(e) {
   if (e.key === "Escape") {
@@ -92,6 +85,16 @@ function openPopup(modal) {
   modal.addEventListener("mousedown", closePopupOverlay);
 }
 
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
+
+function getCardElement(cardData) {
+  const card = new Card(cardData, cardSelector, handleImageClick);
+  return card.getView();
+}
+
 function handleImageClick(card) {
   previewImage.src = card.link;
   previewImage.alt = card.name;
@@ -99,7 +102,7 @@ function handleImageClick(card) {
   openPopup(previewImageModal);
 }
 
-/* Event Handler */
+/*Event Handler*/
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -112,13 +115,12 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  console.log("Card Data:", { name, link }); // Debugging: Log card data
   renderCard({ name, link }, cardsWrap);
   closePopup(addCardModal);
   e.target.reset();
 }
 
-/* Event Listeners */
+/*Event Listeners*/
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -138,8 +140,9 @@ previewImageModalClose.addEventListener("click", () =>
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+
 const config = {
-  formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
@@ -147,62 +150,7 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-/* Create Card Function */
-function createCard(card) {
-  const template = document.querySelector(cardSelector);
-  if (template) {
-    const clone = document.importNode(template.content, true);
-    const imageElement = clone.querySelector(".card__image");
-    imageElement.src = card.link;
-    imageElement.alt = card.name;
-    clone.querySelector(".card__title").textContent = card.name;
-
-    // Add delete button functionality
-    const deleteButton = clone.querySelector(".card__delete-button");
-    deleteButton.addEventListener("click", () => {
-      const cardElement = deleteButton.closest(".card");
-      if (cardElement) {
-        cardElement.remove();
-      }
-    });
-
-    // Add like button functionality
-    const likeButton = clone.querySelector(".card__like-button");
-    likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("card__like-button_active");
-    });
-
-    // Add image click functionality
-    imageElement.addEventListener("click", () => {
-      handleImageClick(card);
-    });
-
-    return clone;
-  } else {
-    console.error("Card template not found");
-    return null;
-  }
-}
-
-/* Render Card Function */
-function renderCard(card, container) {
-  const cardElement = createCard(card);
-  if (cardElement) {
-    container.prepend(cardElement);
-    console.log("Card prepended to container:", container); // Debugging: Log container
-  }
-}
-
-/* Render Initial Cards */
-function renderInitialCards() {
-  initialCards.forEach((card) => {
-    renderCard(card, cardsWrap);
-  });
-}
-
-/* Initialize */
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  renderInitialCards();
-  enableValidation(config);
-});
+const editFormValidator = new addFormValidator(config, profileEditForm);
+const addFormValidator = new addFormValidator(config, addCardForm);
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();

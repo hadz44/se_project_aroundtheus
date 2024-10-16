@@ -149,12 +149,18 @@
   left: 0;
 }
 
-.modal__error_visible {
-  visibility: visible;
+.modal__error:first-of-type {
+  top: 151px;
+  max-width: 358px;
 }
 
-.modal__input_type_error {
-  border-bottom: 1px solid #f00;
+.modal__error:last-of-type {
+  top: 210px;
+  max-width: 358px;
+}
+
+.modal__error_visible {
+  visibility: visible;
 }
 
 @media screen and (max-width: 480px) {
