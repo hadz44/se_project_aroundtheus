@@ -9,5 +9,6 @@
 3.HTML
 4.Grid
 5.Flexbox
+6.Javascript
 
 # As for my Github link: https://github.com/hadz44/se_project_aroundtheus
