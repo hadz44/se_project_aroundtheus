@@ -95,7 +95,7 @@
   box-sizing: border-box; /* Ensure padding is included in the width */
   border: 1px solid #ccc; /* Add border to the button */
   border-radius: 4px; /* Add border radius to match the input */
-  background-color: #007bff; /* Button background color */
+  background-color: #000; /* Button background color */
   color: #fff; /* Button text color */
   font-family: "Inter", Arial, sans-serif;
   margin-top: 16px;
