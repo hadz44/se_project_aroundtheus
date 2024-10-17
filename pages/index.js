@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -150,7 +151,7 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new addFormValidator(config, profileEditForm);
-const addFormValidator = new addFormValidator(config, addCardForm);
+const editFormValidator = new FormValidator(config, profileEditForm);
+const addFormValidator = new FormValidator(config, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();

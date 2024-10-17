@@ -149,16 +149,6 @@
   left: 0;
 }
 
-.modal__error:first-of-type {
-  top: 151px;
-  max-width: 358px;
-}
-
-.modal__error:last-of-type {
-  top: 210px;
-  max-width: 358px;
-}
-
 .modal__error_visible {
   visibility: visible;
 }
