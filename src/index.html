@@ -136,17 +136,26 @@
       </div>
     </div>
 
-    <template id="card-template">
-      <li class="card">
-        <img src="" alt="" class="card__image" />
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
-          <button class="card__delete-button" type="button"></button>
-        </div>
-      </li>
-    </template>
+    <!-- Image Preview Modal -->
+    <div id="image-preview-modal" class="modal">
+      <div class="modal__content">
+        <button id="preview-modal-close" class="modal__close-button">
+          &times;
+        </button>
+        <img id="modal-image" class="modal__image" src="" alt="" />
+        <p id="preview-title" class="modal__title"></p>
+      </div>
+    </div>
 
-    <!-- <script defer src="./pages/index.js" type="module"></script> -->
+    <template id="card-template">
+      <div class="card">
+        <img class="card__image" src="" alt="" />
+        <div class="card__info">
+          <h2 class="card__title"></h2>
+          <button class="card__like-button"></button>
+        </div>
+        <button class="card__delete-button"></button>
+      </div>
+    </template>
   </body>
 </html>
