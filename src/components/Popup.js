@@ -22,9 +22,13 @@ export default class Popup {
   }
 
   setEventListeners() {
-    this._closeButton.addEventListener("click", () => {
-      this.close();
-    });
+    if (this._closeButton) {
+      this._closeButton.addEventListener("click", () => {
+        this.close();
+      });
+    } else {
+      console.error("Close button not found in the popup:", this._popup);
+    }
 
     this._popup.addEventListener("mousedown", (evt) => {
       if (evt.target.classList.contains("modal_opened")) {
