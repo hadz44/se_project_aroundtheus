@@ -13,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
     publicPath: "",
+    clean: true,
   },
   target: ["web", "es5"],
   stats: "errors-only",
@@ -20,7 +21,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, "dist"),
     compress: true,
-    port: 8080,
+    port: 5501,
     open: true,
     liveReload: true,
     hot: false,

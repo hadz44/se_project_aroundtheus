@@ -1,5 +1,5 @@
 class FormValidator {
-  constructor(config, formEl) {
+  constructor(config, formElement) {
     this._config = config;
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
@@ -79,6 +79,7 @@ class FormValidator {
     });
 
     this._setEventListeners();
+    this._toggleButtonState();
   }
 }
 
