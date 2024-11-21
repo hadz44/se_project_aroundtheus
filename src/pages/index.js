@@ -14,7 +14,9 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 
 // Initialize the image modal first
-const imageModal = new PopupWithImage("#image-preview-modal");
+const imageModal = new PopupWithImage({
+  popupSelector: "#image-modal",
+});
 imageModal.setEventListeners();
 
 function openPreviewModal(cardData) {
@@ -31,7 +33,8 @@ const cardSection = new Section({
     const cardEl = createCard(item);
     cardSection.addItem(cardEl);
   },
-  selector: selectors.cardSelection,
+  containerSelector: selectors.cardSelection,
+  items: initialCards,
 });
 cardSection.renderItems(initialCards);
 
