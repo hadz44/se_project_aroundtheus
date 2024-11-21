@@ -25,23 +25,14 @@ export const initialCards = [
   },
 ];
 
-export const cardAddForm = document.forms["card-add-form"];
-export const profileEditForm = document.forms["profile-edit-form"];
-export const cardListEl = document.querySelector(".cards__list");
-
 export const selectors = {
-  cardTemplate: "#card-template",
   cardSelection: ".cards__list",
-  // any other selectors you might need
 };
 
-// FormValidation
 export const validationSettings = {
-  formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
-
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
+  inputErrorClass: ".modal__input_type_error",
+  errorClass: ".modal__error_visible",
 };

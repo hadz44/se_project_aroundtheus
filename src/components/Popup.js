@@ -1,37 +1,32 @@
-export default class Popup {
-  constructor(popupSelector) {
-    this._popup = document.querySelector(popupSelector);
-    this._closeButton = this._popup.querySelector(".modal__close-button");
-    this._handleEscClose = this._handleEscClose.bind(this);
+export class Popup {
+  constructor({ popupSelector }) {
+    this._popupElement = document.querySelector(popupSelector);
+    this._handleEscapeClose = this._handleEscapeClose.bind(this);
   }
-
   open() {
-    this._popup.classList.add("modal_opened");
-    document.addEventListener("keydown", this._handleEscClose);
+    this._popupElement.classList.add("modal_opened");
+    document.addEventListener("keydown", this._handleEscapeClose);
   }
-
   close() {
-    this._popup.classList.remove("modal_opened");
-    document.removeEventListener("keydown", this._handleEscClose);
+    this._popupElement.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._handleEscapeClose);
   }
-
-  _handleEscClose(evt) {
-    if (evt.key === "Escape") {
+  _handleEscapeClose(e) {
+    if (e.key === "Escape") {
       this.close();
     }
   }
-
   setEventListeners() {
-    if (this._closeButton) {
-      this._closeButton.addEventListener("click", () => {
+    this._popupElement
+      .querySelector(".modal__close")
+      .addEventListener("click", () => {
         this.close();
       });
-    } else {
-      console.error("Close button not found in the popup:", this._popup);
-    }
-
-    this._popup.addEventListener("mousedown", (evt) => {
-      if (evt.target.classList.contains("modal_opened")) {
+    this._popupElement.addEventListener("mousedown", (e) => {
+      if (
+        e.target.classList.contains("modal") ||
+        e.target.classList.contains("modal_opened")
+      ) {
         this.close();
       }
     });

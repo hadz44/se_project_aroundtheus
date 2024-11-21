@@ -1,15 +1,15 @@
 import { is } from "core-js/core/object";
 
-export const imageModalWindow = document.querySelector(".popup__image");
-export const imageCaption = imageModalWindow.querySelector(".popup__caption");
+export const imageModalWindow = document.querySelector(".modal__image");
+export const imageCaption = imageModalWindow.querySelector(".modal__caption");
 
 export const closeModal = (modalWindow) => {
-  modalWindow.classList.remove("popup_opened");
+  modalWindow.classList.remove("modal__opened");
   document.removeEventListener("keyup", handleEscUp);
 };
 
 export const openModal = (modalWindow) => {
-  modalWindow.classList.add("popup_opened");
+  modalWindow.classList.add("modal__opened");
   document.addEventListener("keyup", handleEscUpEsc);
 };
 
@@ -19,13 +19,13 @@ export const handleEscUp = (evt) => {
 };
 
 export const isEscEvent = (evt, action) => {
-  const activePopup = document.querySelector(".popup_opened");
+  const activePopup = document.querySelector(".modal_opened");
   if (evt.key === "Escape") {
     action(activePopup);
   }
 };
 
-// export function closePopup(modal) {
+// export function closemodal {
 //   modal.classList.remove("modal_opened");
 //   document.removeEventListener("keydown", closeModalOn Event);
 //   modal.removeEventListener("click", closeModalOneEvent);

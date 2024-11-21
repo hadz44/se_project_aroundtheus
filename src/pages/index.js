@@ -8,12 +8,10 @@ import {
   initialCards,
   selectors,
   validationSettings,
-  cardAddForm,
-  profileEditForm,
 } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/userinfo.js";
+import UserInfo from "../components/UserInfo.js";
 
 // Initialize the image modal first
 const imageModal = new PopupWithImage("#image-preview-modal");
@@ -58,15 +56,20 @@ const profileModal = new PopupWithForm({
 profileModal.setEventListeners();
 
 const userInfo = new UserInfo({
-  nameSelector: ".profile__title",
-  infoSelector: ".profile__description",
+  userName: ".profile__title",
+  userJob: ".profile__description",
 });
+
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   profileTitleInput.value = userData.name;
-  profileDescriptionInput.value = userData.info;
+  profileDescriptionInput.value = userData.job;
   profileModal.open();
 });
 
@@ -74,6 +77,12 @@ const addCardButton = document.querySelector("#add-card-button");
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
+
+// Select the form elements
+const cardAddForm = document.querySelector("form[name='add-card-form']");
+const profileEditForm = document.querySelector(
+  "form[name='profile-edit-form']"
+);
 
 // Form validation
 const addCardFormValidator = new FormValidator(validationSettings, cardAddForm);
