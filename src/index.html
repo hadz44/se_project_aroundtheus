@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <meta name="author" content="Jose Lara-Ceja" />
+    <meta name="author" content="Hadi Frifer" />
     <meta name="keywords" content="" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <title>Around The US</title>
@@ -29,10 +29,18 @@
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button class="profile__edit-button" id="profile-edit-button" button"></button>
+            <form
+              class="profile__edit-button"
+              id="profile-edit-button"
+              name="profile-edit-form"
+            ></form>
             <p class="profile__paragraph">Explorer</p>
           </div>
-          <button class="profile__add-button" id="add-card-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            id="add-card-button"
+            type="button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
@@ -45,7 +53,11 @@
 
     <div id="edit-modal" class="modal">
       <div class="modal__container">
-        <form class="modal__form" id="profile-edit-button">
+        <form
+          class="modal__form"
+          id="profile-edit-button"
+          name="profile-edit-form"
+        >
           <button type="button" class="modal__close"></button>
           <p class="modal__header">Edit Profile</p>
           <label class="modal__label" for="add-name">
@@ -89,7 +101,7 @@
 
     <div id="add-card-modal" class="modal">
       <div class="modal__container">
-        <form class="modal__form" id="add-form">
+        <form class="modal__form" id="add-form" name="add-card-form">
           <button type="button" class="modal__close" id="add-close"></button>
           <p class="modal__header" id="add-header">New place</p>
           <label class="modal__label" for="add-title">

@@ -50,7 +50,7 @@ const addCardModal = new PopupWithForm({
 addCardModal.setEventListeners();
 
 const profileModal = new PopupWithForm({
-  popupSelector: "#edit-modal",
+  popupSelector: "#profile-edit-modal",
   handleFormSubmit: (formData) => {
     userInfo.setUserInfo(formData);
     profileModal.close();
@@ -77,11 +77,9 @@ profileEditButton.addEventListener("click", () => {
 });
 
 const addCardButton = document.querySelector("#add-card-button");
-if (addCardButton) {
-  addCardButton.addEventListener("click", () => {
-    addCardModal.open();
-  });
-}
+addCardButton.addEventListener("click", () => {
+  addCardModal.open();
+});
 
 // Select the form elements
 const cardAddForm = document.querySelector("form[name='add-card-form']");
