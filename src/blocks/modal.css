@@ -49,6 +49,14 @@
   display: block;
 }
 
+.modal__caption {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  color: #fff;
+}
+
 .modal__title {
   position: absolute;
   left: 0;
@@ -134,6 +142,10 @@
 .modal__form {
   display: flex;
   flex-direction: column;
+}
+
+.modal__form-container {
+  position: relative;
 }
 
 .modal__error {

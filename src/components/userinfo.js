@@ -3,6 +3,7 @@ export default class UserInfo {
     this._nameElement = document.querySelector(nameElement);
     this._jobElement = document.querySelector(jobElement);
   }
+
   getUserInfo() {
     return {
       name: this._nameElement.textContent,
