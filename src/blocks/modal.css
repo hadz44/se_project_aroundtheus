@@ -139,6 +139,10 @@
   border-bottom: 1px solid rgba(84 84 84 / 0.7);
 }
 
+.modal__input-container {
+  position: relative;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
