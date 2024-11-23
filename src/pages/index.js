@@ -7,7 +7,7 @@ import Section from "../components/Section.js";
 import { initialCards, config } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/userinfo.js";
+import UserInfo from "../components/UserInfo.js";
 
 /*Variables*/
 
