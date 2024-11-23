@@ -103,6 +103,10 @@ profileEditBtn.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
 });
 
+function closeModal(modalElement) {
+  modalElement.classList.add("hidden");
+}
+
 profileModalCloseButton.addEventListener("click", () =>
   closeModal(profileEditForm)
 );
