@@ -36,6 +36,7 @@ const popupWithAddCardForm = new PopupWithForm(
 
 profileEditBtn.addEventListener("click", () => {
   popupWithEditProfileForm.open();
+  profileTitleInput.value = profileTitle.textContent;
 });
 
 addNewCardButton.addEventListener("click", () => {
@@ -71,7 +72,7 @@ function getCardElement(cardData) {
   return card.getView();
 }
 
-function renderCard(cardData, cardListEl) {
+function renderCard(cardData) {
   console.log(cardData);
   const cardElement = getCardElement(cardData);
   section.addItem(cardElement);
@@ -97,19 +98,6 @@ function handleAddCardFormSubmit(inputValue) {
   renderCard(cardData);
   popupWithAddCardForm.close();
 }
-
-profileEditBtn.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-});
-
-function closeModal(modalElement) {
-  modalElement.classList.add("hidden");
-}
-
-profileModalCloseButton.addEventListener("click", () =>
-  closeModal(profileEditForm)
-);
 
 //Validation
 
