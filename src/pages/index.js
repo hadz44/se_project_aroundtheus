@@ -37,6 +37,7 @@ const popupWithAddCardForm = new PopupWithForm(
 profileEditBtn.addEventListener("click", () => {
   popupWithEditProfileForm.open();
   profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
 });
 
 addNewCardButton.addEventListener("click", () => {
@@ -97,6 +98,7 @@ function handleAddCardFormSubmit(inputValue) {
   };
   renderCard(cardData);
   addCardFormElement.reset();
+  addFormValidator.disableButton();
   popupWithAddCardForm.close();
 }
 
