@@ -4,6 +4,8 @@
   "description": "A picture sharing site.",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development"
   },
@@ -19,6 +21,7 @@
     "core-js": "^3.39.0",
     "css-loader": "^6.11.0",
     "cssnano": "5.1.12",
+    "gh-pages": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "7.0.1",
