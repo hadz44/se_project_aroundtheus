@@ -35,9 +35,10 @@ const popupWithAddCardForm = new PopupWithForm(
 );
 
 profileEditBtn.addEventListener("click", () => {
+  const userData = userInfo.getUserInfo();
   popupWithEditProfileForm.open();
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  profileTitleInput.value = userData.name;
+  profileDescriptionInput.value = userData.description;
 });
 
 addNewCardButton.addEventListener("click", () => {
