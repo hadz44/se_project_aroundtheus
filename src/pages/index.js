@@ -1,13 +1,36 @@
-import "./index.css";
+import Api from "../components/Api.js";
+import "../pages/index.css";
 
 // Import all classes
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import { initialCards, config } from "../utils/Constants.js";
+import { 
+  initialCards,
+  config
+  profileEditModal,
+  profileTitle,
+  profileDescription,
+  profileTitleInput,
+  profileDescriptionInput,
+  profileAddbutton,
+  profileEditButton,
+  profileEditForm,
+  addCardForm,
+  addNewCardModal,
+  previewImage,
+  previewDescription,
+  profileAvatarButton,
+  profileAvatarModal,
+  profileAvatarForm,
+  cardDeletebutton,
+  cardDeleteModal,
+  cardDeleteForm,
+} from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 /*Variables*/
 
