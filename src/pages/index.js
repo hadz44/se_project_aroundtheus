@@ -8,23 +8,16 @@ import Section from "../components/Section.js";
 import {
   initialCards,
   config,
-  profileEditModal,
   profileTitle,
   profileDescription,
-  profileTitleInput,
-  profileDescriptionInput,
-  profileAddbutton,
   profileEditButton,
-  profileEditForm,
   addCardForm,
   addNewCardModal,
   previewImage,
   previewDescription,
   profileAvatarButton,
-  profileAvatarModal,
   profileAvatarForm,
   cardDeletebutton,
-  cardDeleteModal,
   cardDeleteForm,
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -254,12 +247,6 @@ function getCardElement(cardData) {
   return card.getView();
 }
 
-function renderCard(cardData) {
-  console.log(cardData);
-  const cardElement = getCardElement(cardData);
-  section.addItem(cardElement);
-}
-
 function handleDeleteCard(cardInstance) {
   cardDeleteModal.open();
   cardDeleteModal.setSubmitAction(() => {
@@ -299,28 +286,6 @@ function handleLike(cardInstance) {
         console.error(err);
       });
   }
-}
-/*Event Handlers*/
-
-function handleProfileEditSubmit({ title, description }) {
-  console.log(title, description);
-  userInfo.setUserInfo({
-    name: title,
-    description: description,
-  });
-  console.log(userInfo.getUserInfo());
-  popupWithEditProfileForm.close();
-}
-
-function handleAddCardFormSubmit(inputValue) {
-  const cardData = {
-    name: inputValue.title,
-    link: inputValue.url,
-  };
-  renderCard(cardData);
-  addCardFormElement.reset();
-  addFormValidator.disableButton();
-  popupWithAddCardForm.close();
 }
 
 //Validation
