@@ -83,8 +83,10 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     console.log(err);
   });
 
-if (profileAddbutton) {
-  profileAddbutton.addEventListener("click", () => {
+const profileAddButton = document.querySelector(".profile__add-button");
+
+if (profileAddButton) {
+  profileAddButton.addEventListener("click", () => {
     addCardPopup.open();
   });
 } else {
