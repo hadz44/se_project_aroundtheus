@@ -237,6 +237,7 @@ section.renderItems();
 const userInfo = new UserInfo({
   nameElement: ".profile__title",
   jobElement: ".profile__description",
+  setAvatar: ".profile__image",
 });
 
 popupWithEditProfileForm.setEventListeners();
