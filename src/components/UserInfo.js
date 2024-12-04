@@ -17,4 +17,8 @@ export default class UserInfo {
     this._jobElement.textContent = data.description;
     this._setAvatar.src = data.src;
   }
+
+  setAvatar(data) {
+    this._setAvatar.src = data.avatar;
+  }
 }
