@@ -9,7 +9,7 @@ export default class UserInfo {
     return {
       name: this._nameElement.textContent,
       description: this._jobElement.textContent,
-      src: this._setAvatar.src,
+      avatar: this._setAvatar.src,
     };
   }
   setUserInfo(data) {
