@@ -63,7 +63,7 @@ const api = new Api({
 // let section; (removed duplicate declaration)
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then(([cards, data]) => {
+  .then(([data, cards]) => {
     section = new Section(
       {
         items: cards,
@@ -225,7 +225,7 @@ addNewCardButton.addEventListener("click", () => {
 
 const popupWithImage = new PopupWithImage("#preview-image-modal");
 
-const section = new Section(
+let section = new Section(
   {
     items: initialCards,
     renderer: renderCard,
