@@ -54,9 +54,12 @@ const cardSelector = "#card-template";
 //   avatarSelector: ".profile__image",
 // });
 const api = new Api({
-  baseUrl: "https://jsonplaceholder.typicode.com/todos/1",
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "acc089fa-fd09-45f5-afdd-b21529e768d0",
+    "Content-Type": "application/json",
+  },
 });
-
 // let section; (removed duplicate declaration)
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])

@@ -9,7 +9,7 @@ export default class PopupWithConfirmation extends Popup {
 
     super({ popupSelector: popupSelector });
 
-    this._popUpform = popupElement.querySelector(".modal__form");
+    this._popupform = popupElement.querySelector(".modal__form");
     this._submitButton = this._popupform.querySelector(".modal__button");
     this._submitButtonText = this._submitButton.textContent;
     this._handleForSubmit = null;
@@ -28,7 +28,7 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   setEventListeners() {
-    this._popUpform.addEventListener("submit", (e) => {
+    this._popupform.addEventListener("submit", (e) => {
       e.preventDefault();
       if (typeof this._handleForSubmit === "function") {
         this._handleForSubmit();
