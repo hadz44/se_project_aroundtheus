@@ -56,8 +56,9 @@ const profileModal = new PopupWithForm({
 profileModal.setEventListeners();
 
 const userInfo = new UserInfo({
-  userName: ".profile__title",
-  userJob: ".profile__description",
+  nameElement: ".profile__title",
+  jobElement: ".profile__description",
+  setAvatar: ".profile__image",
 });
 
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -69,7 +70,7 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   profileTitleInput.value = userData.name;
-  profileDescriptionInput.value = userData.job;
+  profileDescriptionInput.value = userData.description;
   profileModal.open();
 });
 
@@ -79,8 +80,8 @@ addCardButton.addEventListener("click", () => {
 });
 
 // Select the form elements
-const cardAddForm = document.querySelector("add-card-form");
-const profileEditForm = document.querySelector("profile-edit-form");
+const cardAddForm = document.querySelector("#add-card-form");
+const profileEditForm = document.querySelector("#profile-edit-form");
 
 // Form validation
 const addCardFormValidator = new FormValidator(config, cardAddForm);
