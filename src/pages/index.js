@@ -28,12 +28,13 @@ function createCard(data) {
 }
 
 const cardSection = new Section({
+  items: initialCards,
   renderer: (item) => {
     const cardEl = createCard(item);
     cardSection.addItem(cardEl);
   },
-  selector: selectors.cardSelection,
 });
+(".cards__list");
 cardSection.renderItems(initialCards);
 
 // Other modal and form initializations
