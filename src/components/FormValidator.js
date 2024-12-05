@@ -71,7 +71,7 @@ class FormValidator {
     });
   }
 
-  _enableValidation() {
+  enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });

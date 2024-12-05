@@ -83,10 +83,8 @@ addCardButton.addEventListener("click", () => {
 });
 
 // Select the form elements
-const cardAddForm = document.querySelector("form[name='add-card-form']");
-const profileEditForm = document.querySelector(
-  "form[name='profile-edit-form']"
-);
+const cardAddForm = document.querySelector("add-card-form");
+const profileEditForm = document.querySelector("profile-edit-form");
 
 // Form validation
 const addCardFormValidator = new FormValidator(validationSettings, cardAddForm);
