@@ -4,11 +4,7 @@ import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import {
-  initialCards,
-  selectors,
-  validationSettings,
-} from "../utils/constants.js";
+import { initialCards, selectors, config } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
@@ -87,11 +83,8 @@ const cardAddForm = document.querySelector("add-card-form");
 const profileEditForm = document.querySelector("profile-edit-form");
 
 // Form validation
-const addCardFormValidator = new FormValidator(validationSettings, cardAddForm);
+const addCardFormValidator = new FormValidator(config, cardAddForm);
 addCardFormValidator.enableValidation();
 
-const profileEditFormValidator = new FormValidator(
-  validationSettings,
-  profileEditForm
-);
+const profileEditFormValidator = new FormValidator(config, profileEditForm);
 profileEditFormValidator.enableValidation();
