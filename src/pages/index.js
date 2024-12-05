@@ -15,7 +15,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 // Initialize the image modal first
-const imageModal = new PopupWithImage("#image-preview-modal");
+const imageModal = new PopupWithImage("#preview-image-modal");
 imageModal.setEventListeners();
 
 function openPreviewModal(cardData) {
