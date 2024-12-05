@@ -28,7 +28,7 @@ class FormValidator {
     return this._inputEls.some((inputEl) => !inputEl.validity.valid);
   }
 
-  toggleButtonState() {
+  _toggleButtonState() {
     let foundInvalid = false;
 
     this._inputEls.forEach((inputEl) => {
@@ -49,7 +49,7 @@ class FormValidator {
     this._submitButton.disabled = false;
   }
 
-  disableButton() {
+  _disableButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
   }
@@ -71,7 +71,7 @@ class FormValidator {
     });
   }
 
-  enableValidation() {
+  _enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
