@@ -77,7 +77,7 @@ profileEditButton.addEventListener("click", () => {
   profileModal.open();
 });
 
-const addCardButton = document.querySelector("#add-card-button");
+const addCardButton = document.querySelector("#modal__close");
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
 });

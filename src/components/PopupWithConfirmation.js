@@ -4,7 +4,7 @@ export default class PopupWithConfirmation extends Popup {
   constructor({ popupSelector }) {
     const popupElement = document.querySelector(popupSelector);
     if (!popupElement) {
-      throw new Error('Element with selector "${popupSelector}"  not found.');
+      throw new Error('Element with selector "${ popupSelector }"  not found.');
     }
 
     super({ popupSelector: popupSelector });
