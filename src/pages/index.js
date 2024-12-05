@@ -27,14 +27,16 @@ function createCard(data) {
   return card.getView();
 }
 
-const cardSection = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const cardEl = createCard(item);
-    cardSection.addItem(cardEl);
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const cardEl = createCard(item);
+      cardSection.addItem(cardEl);
+    },
   },
-});
-(".cards__list");
+  ".cards__list"
+);
 cardSection.renderItems(initialCards);
 
 // Other modal and form initializations
