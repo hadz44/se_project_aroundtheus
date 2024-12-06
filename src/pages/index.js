@@ -56,9 +56,9 @@ const profileModal = new PopupWithForm({
 profileModal.setEventListeners();
 
 const avatarModal = new PopupWithForm({
-  popupSelector: "#avatar-edit-modal",
+  popupSelector: "#avatar-modal",
   handleFormSubmit: (formData) => {
-    userInfo.setAvatar(formData.avatar);
+    userInfo.setAvatar({ avatar: formData.url });
     avatarModal.close();
   },
 });
@@ -84,6 +84,11 @@ profileEditButton.addEventListener("click", () => {
 const addCardButton = document.querySelector("#modal__close");
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
+});
+
+const avatarButton = document.querySelector(".avatar__button");
+avatarButton.addEventListener("click", () => {
+  avatarModal.open();
 });
 
 // Select the form elements
