@@ -22,16 +22,18 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="avatar"
-          />
-          <button
-            class="avatar__button"
-            type="button"
-            id="avatar-modal-button"
-          ></button>
+          <div class="profile__avatar-container">
+            <img
+              class="profile__image"
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="avatar"
+            />
+            <button
+              class="avatar__button"
+              type="button"
+              id="avatar-modal-button"
+            ></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
             <button
