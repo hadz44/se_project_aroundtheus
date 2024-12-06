@@ -55,16 +55,23 @@ const profileModal = new PopupWithForm({
 });
 profileModal.setEventListeners();
 
+const avatarModal = new PopupWithForm({
+  popupSelector: "#avatar-edit-modal",
+  handleFormSubmit: (formData) => {
+    userInfo.setAvatar(formData.avatar);
+    avatarModal.close();
+  },
+});
+avatarModal.setEventListeners();
+
 const userInfo = new UserInfo({
   nameElement: ".profile__title",
   jobElement: ".profile__description",
   setAvatar: ".profile__image",
 });
 
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
+const profileTitleInput = document.querySelector("#title-input");
+const profileDescriptionInput = document.querySelector("#description-input");
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 profileEditButton.addEventListener("click", () => {
