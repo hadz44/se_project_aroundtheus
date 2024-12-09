@@ -165,6 +165,38 @@
   left: 0;
 }
 
+.modal__submit-button {
+  width: 156px;
+  padding: 18px 0;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 8px;
+  background: rgba(33, 33, 33, 1);
+  color: rgba(252, 245, 229, 1);
+  transition: background 0.3s;
+}
+
+.modal__submit-button-disabled {
+  background: rgba(33, 33, 33, 0.5);
+}
+
+.modal__submit-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.modal__submit-cancel {
+  background-color: #ff6565;
+  color: #212121;
+  border: none;
+}
+
+.modal__submit-cancel:hover {
+  background-color: #212121;
+  color: #fff;
+}
 .modal__error_visible {
   visibility: visible;
 }
