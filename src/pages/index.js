@@ -9,6 +9,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+import { construct } from "core-js/fn/reflect";
 
 // Initialize the image modal first
 const imageModal = new PopupWithImage("#preview-image-modal");
@@ -34,6 +35,32 @@ const cardSection = new Section(
   ".cards__list"
 );
 cardSection.renderItems(initialCards);
+
+function handleDeleteAction() {
+  confirmationModal.open();
+};
+
+constructor({ popupSelector }) {
+  const popupElement = document.querySelector(popupSelector);
+  if (!popupElement) {
+    throw new Error('Element with selector "${ popupSelector }"  not found.');
+  }
+
+  super({ popupSelector: popupSelector });
+
+  this._popupform = popupElement.querySelector(".modal__form");
+  this._submitButton = this._popupform.querySelector(".modal__button");
+  this._submitButtonText = this._submitButton.textContent;
+  this._handleForSubmit = null;
+};
+
+const confirmationModal = new PopupWithConfirmation({
+  popupSelector: "#delete-modal",
+  handleFormSubmit: () => {
+    cardSection.removeItem();
+    confirmationModal.close();
+  },
+});
 
 // Other modal and form initializations
 const addCardModal = new PopupWithForm({
