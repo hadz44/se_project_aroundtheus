@@ -4,7 +4,7 @@ export default class PopupWIthImage extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
     this._imageElement = this._popupElement.querySelector(
-      ".modal__preview-image"
+      ".preview-imge-modal"
     );
     this._captionElement = this._popupElement.querySelector(
       ".modal__image-caption"
