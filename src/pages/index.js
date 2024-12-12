@@ -19,7 +19,12 @@ function openPreviewModal(cardData) {
 }
 
 function createCard(data) {
-  const card = new Card(data, "#card-template", openPreviewModal);
+  const card = new Card(
+    data,
+    "#card-template",
+    openPreviewModal,
+    handleDeleteAction
+  );
   return card.getView();
 }
 
