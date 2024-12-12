@@ -54,7 +54,6 @@ const addCardModal = new PopupWithForm({
     const newCard = createCard(formData);
     cardSection.addItem(newCard);
     addCardModal.close();
-  },
 });
 addCardModal.setEventListeners();
 

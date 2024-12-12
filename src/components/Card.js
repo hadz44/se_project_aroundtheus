@@ -5,10 +5,9 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteAction = this._handleDeleteAction;
-    }
+    this._setEventListeners = this._setEventListeners.bind(this);
   }
-  
-  
+
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")
@@ -55,4 +54,3 @@ export default class Card {
 
     return this._cardElement;
   }
-}
