@@ -38,6 +38,8 @@ cardSection.renderItems(initialCards);
 function handleDeleteAction() {
   confirmationModal.open();
 }
+const deleteModal = document.querySelector("#delete-modal");
+const deleteForm = deleteModal.querySelector(".modal__form");
 
 const confirmationModal = new PopupWithConfirmation({
   popupSelector: "#delete-modal",
@@ -114,3 +116,26 @@ addCardFormValidator.enableValidation();
 
 const profileEditFormValidator = new FormValidator(config, profileEditForm);
 profileEditFormValidator.enableValidation();
+
+const deleteModalCloseButton = deleteModal.querySelector(
+  ".modal__close-button"
+);
+
+deleteModalCloseButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+const deleteModalCancelButton = deleteModal.querySelector(
+  ".modal__submit-cancel"
+);
+
+deleteModalCancelButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+avatarForm.addEventListener("submit", handleAvatarSubmit);
+deleteForm.addEventListener("submit", handleDeleteSubmit);
+profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+cardForm.addEventListener("submit", handleAddCardSubmit);
+
+enableValidation(settings);
