@@ -131,7 +131,7 @@ deleteModalCloseButton.addEventListener("click", () => {
 });
 
 const deleteModalCancelButton = deleteModal.querySelector(
-  ".modal__submit-cancel"
+  ".modal__submit-button-cancel"
 );
 
 deleteModalCancelButton.addEventListener("click", () => {
