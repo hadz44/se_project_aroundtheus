@@ -159,6 +159,15 @@
   position: relative;
 }
 
+.modal__form_delete {
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.modal__container_delete {
+  height: unset;
+}
 .modal__error {
   visibility: hidden;
   display: block;
