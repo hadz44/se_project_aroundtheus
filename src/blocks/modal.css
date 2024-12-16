@@ -38,6 +38,17 @@
   position: relative;
 }
 
+.modal__container_delete {
+  background-color: #fff;
+  margin: auto;
+  width: 430px;
+  height: 330px;
+  padding: 0 30px 30px;
+  border-radius: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
 .modal__image {
   max-width: 100%;
   max-height: 100%;

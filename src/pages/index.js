@@ -101,6 +101,8 @@ profileEditButton.addEventListener("click", () => {
   profileModal.open();
 });
 
+const avatarForm = document.querySelector(".profile__avatar-form");
+
 const addCardButton = document.querySelector("#modal__close");
 addCardButton.addEventListener("click", () => {
   addCardModal.open();
