@@ -129,7 +129,7 @@ const deleteModalCloseButton = deleteModal.querySelector(
 );
 
 deleteModalCloseButton.addEventListener("click", () => {
-  closeModal(deleteModal);
+  confirmationModal.close();
 });
 
 const deleteModalCancelButton = deleteModal.querySelector(
@@ -137,7 +137,7 @@ const deleteModalCancelButton = deleteModal.querySelector(
 );
 
 deleteModalCancelButton.addEventListener("click", () => {
-  closeModal(deleteModal);
+  confirmationModal.close();
 });
 
 avatarForm.addEventListener("submit", handleAvatarSubmit);
