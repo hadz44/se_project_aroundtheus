@@ -216,7 +216,6 @@
 }
 
 .modal__submit-cancel {
-  background-color: #ff6565;
   color: #212121;
   border: none;
 }
@@ -225,6 +224,7 @@
   background-color: #212121;
   color: #fff;
 }
+
 .modal__error_visible {
   visibility: visible;
 }

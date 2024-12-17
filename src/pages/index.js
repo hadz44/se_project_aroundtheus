@@ -28,6 +28,14 @@ function createCard(data) {
   return card.getView();
 }
 
+function handleDeleteAction(card) {
+  confirmationModal.open();
+  confirmationModal.setSubmitAction(() => {
+    card._handleDeleteAction();
+    confirmationModal.close();
+  });
+}
+
 const cardSection = new Section(
   {
     items: initialCards,
@@ -40,19 +48,13 @@ const cardSection = new Section(
 );
 cardSection.renderItems(initialCards);
 
-function handleDeleteAction() {
-  confirmationModal.open();
-}
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
 const confirmationModal = new PopupWithConfirmation({
   popupSelector: "#delete-modal",
-  handleFormSubmit: () => {
-    cardSection.removeItem();
-    confirmationModal.close();
-  },
 });
+confirmationModal.setEventListeners();
 
 // Other modal and form initializations
 const addCardModal = new PopupWithForm({
@@ -140,9 +142,9 @@ deleteModalCancelButton.addEventListener("click", () => {
   confirmationModal.close();
 });
 
-avatarForm.addEventListener("submit", handleAvatarSubmit);
-deleteForm.addEventListener("submit", handleDeleteSubmit);
-profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-cardForm.addEventListener("submit", handleAddCardSubmit);
+// avatarForm.addEventListener("submit", handleAvatarSubmit);
+// deleteForm.addEventListener("submit", handleDeleteSubmit);
+// profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+// cardForm.addEventListener("submit", handleAddCardSubmit);
 
-enableValidation(settings);
+// enableValidation(settings);
