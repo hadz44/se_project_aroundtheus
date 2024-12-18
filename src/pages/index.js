@@ -9,6 +9,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+import Api from "../components/Api.js";
 
 // Initialize the image modal first
 const imageModal = new PopupWithImage("#preview-image-modal");
@@ -18,6 +19,13 @@ function openPreviewModal(cardData) {
   imageModal.open(cardData);
 }
 
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "8c8b85bf-59a0-4ef6-bd12-8a446b1d2253",
+    "Content-Type": "application/json",
+  },
+});
 function createCard(data) {
   const card = new Card(
     data,
@@ -60,7 +68,7 @@ confirmationModal.setEventListeners();
 const addCardModal = new PopupWithForm({
   popupSelector: "#add-card-modal",
   handleFormSubmit: (formData) => {
-    const newCard = createCard(formData);
+    const newCard = createCard({ name: formData.title, link: formData.url });
     cardSection.addItem(newCard);
     addCardModal.close();
   },
@@ -125,10 +133,6 @@ addCardFormValidator.enableValidation();
 
 const profileEditFormValidator = new FormValidator(config, profileEditForm);
 profileEditFormValidator.enableValidation();
-
-const deleteModalCloseButton = deleteModal.querySelector(
-  ".modal__close-button"
-);
 
 deleteModalCloseButton.addEventListener("click", () => {
   confirmationModal.close();
