@@ -76,6 +76,12 @@ const addCardModal = new PopupWithForm({
 
 addCardModal.setEventListeners();
 
+api.getUserInfoAndCards().then(([cards, userData]) => {
+  cardSection.renderItems(cards);
+
+  userInfo.setUserInfo({ title: userData.name, description: userData.about });
+});
+
 const profileModal = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (formData) => {

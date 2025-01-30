@@ -13,3 +13,8 @@ export default class Section {
     this._class.prepend(element);
   }
 }
+renderItems(items) {
+  items.forEach((item) => {
+    this._renderer(item);
+  });
+}
