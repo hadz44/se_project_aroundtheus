@@ -12,6 +12,7 @@ export default class Card {
     this._handleDeleteClick = handleDeleteClick;
     this._setEventListeners = this._setEventListeners.bind(this);
   }
+  
 
   _setEventListeners() {
     this._cardElement
