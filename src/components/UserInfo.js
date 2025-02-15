@@ -22,5 +22,4 @@ export default class UserInfo {
   setAvatar(data) {
     this._setAvatar.src = data.avatar;
   }
-  this
 }
