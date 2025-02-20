@@ -5,35 +5,17 @@ import "../pages/index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import {
-  initialCards,
-  config,
-  profileEditModal,
-  profileTitle,
-  profileDescription,
-  profileTitleInput,
-  profileDescriptionInput,
-  profileAddbutton,
-  profileEditButton,
-  profileEditForm,
-  addCardForm,
-  addNewCardModal,
-  previewImage,
-  previewDescription,
-  profileAvatarButton,
-  profileAvatarModal,
-  profileAvatarForm,
-  cardDeletebutton,
-  cardDeleteModal,
-  cardDeleteForm,
-} from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+import { 
+  initialCards,
+  config,
+} from "../utils/constants.js";
 
 /*Variables*/
-
+const profileAddbutton  = document.querySelector(".profile__add-button");
 const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileEditModalEl = document.querySelector("#profile-edit-modal");
 const addCardModalEl = document.querySelector("#add-card-modal");
@@ -42,11 +24,10 @@ const profileModalCloseButton =
 const profileTitleEl = document.querySelector(".profile__title");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
-const profileTitleInput = document.querySelector("#title-input");
-const profileDescriptionInput = document.querySelector("#description-input");
 const addCardFormElement = addCardModalEl.querySelector(".modal__form");
 const profileEditForm = profileEditModalEl.querySelector(".modal__form");
-
+const profileTitleInput = document.querySelector("#title-input");
+const profileDescriptionInput = document.querySelector("#description-input");
 /*Linked Classes*/
 
 const cardTemplate =
@@ -61,30 +42,45 @@ const cardSelector = "#card-template";
 //   avatarSelector: ".profile__image",
 // });
 const api = new Api({
-  baseUrl: "https://jsonplaceholder.typicode.com/todos/1",
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "8c8b85bf-59a0-4ef6-bd12-8a446b1d2253",
+    "Content-Type": "application/json",
+  },
 });
-
 // let section; (removed duplicate declaration)
 
-Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then(([cards, data]) => {
-    section = new Section(
-      {
-        items: cards,
-        renderer: (data) => {
-          const cardEl = renderCard(data);
-          section.addItem(cardEl);
-        },
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => 
+      { 
+        const card = renderCard(cardData);
+        section.addItem(card);
       },
-      ".cards__list"
-    );
-    section.renderItems();
+  },
+  ".cards__list"
+);
+//section.renderItems();
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([user, cards]) => {
+    // section = new Section(
+    //   {
+    //     items: cards,
+    //     renderer: (data) => {
+    //       const cardEl = renderCard(data);
+    //       section.addItem(cardEl);
+    //     },
+    //   },
+    //   ".cards__list"
+    // );
+    section.renderItems(cards);
     userInfo.setUserInfo({
-      title: data.name,
-      description: data.about,
+      title: user.name,
+      description: user.about,
     });
 
-    userInfo.setAvatar({ avatar: data.avatar });
+    userInfo.setAvatar({ avatar: user.avatar });
   })
   .catch((err) => {
     console.log(err);
@@ -113,8 +109,13 @@ popupWithEditProfileForm.setEventListeners();
 addCardPopup.setEventListeners();
 
 const cardDeleteModal = new PopupWithConfirmation({
-  popupSelector: "#delete-card-modal",
+  popupSelector: "#delete-modal",
 });
+
+
+const deleteModalCloseButton = deleteModal.querySelector(
+  ".modal__close_delete"
+);
 
 cardDeleteModal.setEventListeners();
 
@@ -227,14 +228,6 @@ addNewCardButton.addEventListener("click", () => {
 
 const popupWithImage = new PopupWithImage("#preview-image-modal");
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  ".cards__list"
-);
-section.renderItems();
 
 const userInfo = new UserInfo({
   nameElement: ".profile__title",
