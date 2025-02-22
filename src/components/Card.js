@@ -1,12 +1,14 @@
 export default class Card {
   constructor(
-    { name, link },
+    { name, link, _id, isLiked },
     cardSelector,
     handleImageClick,
     handleDeleteClick
   ) {
     this._name = name;
     this._link = link;
+    this._isLiked = isLiked;
+    this._id = _id;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
@@ -40,7 +42,7 @@ export default class Card {
       .classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteAction() {
+  handleDeleteButton() {
     this._cardElement.remove();
   }
 
@@ -53,6 +55,8 @@ export default class Card {
     const cardTitle = this._cardElement.querySelector(".card__title");
     cardImage.src = this._link;
     cardImage.alt = this._name;
+    cardImage.id = this._id;
+    cardImage.isLiked = this._isLiked;
     cardTitle.textContent = this._name;
 
     this._setEventListeners();
