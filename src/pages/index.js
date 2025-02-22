@@ -121,7 +121,7 @@ const popupWithEditProfileForm = new PopupWithForm({
 function handleLike(cardInstance) {
   if (cardInstance.isLiked) {
     api
-      .dislikeCard(cardInstance.id)
+      .dislikeCard(cardInstance._id)
       .then((data) => {
         cardInstance.setIsLiked(false);
       })
@@ -130,7 +130,7 @@ function handleLike(cardInstance) {
       });
   } else {
     api
-      .likeCard(cardInstance.id)
+      .likeCard(cardInstance._id)
       .then((data) => {
         cardInstance.setIsLiked(true);
       })
