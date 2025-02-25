@@ -70,7 +70,7 @@
           <p class="modal__heading">Edit Profile</p>
           <label class="modal__form-container">
             <input
-              class="modal__input"
+              class="modal__input" 
               id="title-input"
               type="text"
               placeholder="Title"
@@ -93,6 +93,17 @@
               required
             />
             <span class="modal__error" id="description-input-error"></span>
+          </label>
+          <label class="modal__form-container">
+            <input
+              type="url"
+              name="url"
+              id="avatar-picture"
+              class="modal__input modal__input_type_url"
+              placeholder="Avatar Url"
+              required
+            />
+            <span class="modal__error" id="avatar-picture-error"></span>
           </label>
           <button
             class="modal__button modal__button_disabled"

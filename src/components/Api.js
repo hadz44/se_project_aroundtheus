@@ -66,7 +66,7 @@ export default class Api {
   }
 
   async likeCard(cardId) {
-    const res = await fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    const res = await fetch(`${this._baseUrl}/cards/${cardId}/likes/`, {
       method: "PUT",
       headers: this._headers,
     });
@@ -74,7 +74,7 @@ export default class Api {
   }
 
   async dislikeCard(cardId) {
-    const res = await fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    const res = await fetch(`${this._baseUrl}/cards/${cardId}/likes/`, {
       method: "DELETE",
       headers: this._headers,
     });

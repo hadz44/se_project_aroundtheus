@@ -240,8 +240,12 @@ function handleAddCardFormSubmit(inputValues) {
     .then((data) => {
       const cardEl = renderCard(data);
       section.addItem(cardEl);
-      addCardModal.resetForm();
+      /*addCardModal.resetForm();
       addFormValidator.disableButton();
+      addCardModal.close();*/
+
+      addCardFormValidator.disableButton();
+      addCardFormElement.reset();
       addCardModal.close();
     })
     .catch((err) => {
@@ -306,7 +310,10 @@ profileEditButton.addEventListener("click", () => {
   popupWithEditProfileForm.open();
 });
 
-const avatarForm = document.querySelector(".profile__avatar-form");
+const avatarForm = document.querySelector(".profile__avatar-modal");
+
+const avatarFormValidator = new FormValidator(config, avatarForm);
+avatarFormValidator.enableValidation();
 
 const addCardButton = document.querySelector("#modal__close");
 addCardButton.addEventListener("click", () => {

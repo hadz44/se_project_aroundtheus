@@ -38,6 +38,11 @@
   position: relative;
 }
 
+.modal__preview-image {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
 .modal__container_delete {
   background-color: #fff;
   margin: auto;
