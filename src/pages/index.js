@@ -244,7 +244,7 @@ function handleAddCardFormSubmit(inputValues) {
       addFormValidator.disableButton();
       addCardModal.close();*/
 
-      addCardFormValidator.disableButton();
+      addCardFormValidator._disableButton();
       addCardFormElement.reset();
       addCardModal.close();
     })
