@@ -341,14 +341,6 @@ deleteModalCloseButton.addEventListener("click", () => {
   cardDeleteModal.close();
 });
 
-const deleteModalCancelButton = deleteModal.querySelector(
-  ".modal__submit-button-cancel"
-);
-
-deleteModalCancelButton.addEventListener("click", () => {
-  cardDeleteModal.close();
-});
-
 // avatarForm.addEventListener("submit", handleAvatarSubmit);
 // deleteForm.addEventListener("submit", handleDeleteSubmit);
 // profileFormElement.addEventListener("submit", handleProfileFormSubmit);

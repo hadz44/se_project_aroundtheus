@@ -15,8 +15,13 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._setEventListeners = this._setEventListeners.bind(this);
+    this.isLiked = isLiked;
   }
   
+  setIsLiked(isLiked) {
+    this._isLiked = isLiked;
+    this._handleLikeButton();
+  }
 
   _setEventListeners() {
     this._cardElement
