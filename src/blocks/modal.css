@@ -192,6 +192,7 @@
   line-height: 15px;
   color: #ff0000;
   transition: opacity 0.3s;
+  margin-bottom: 30px;
   top: 33px;
   left: 0;
 }
