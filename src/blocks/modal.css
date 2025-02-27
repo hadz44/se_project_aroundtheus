@@ -22,7 +22,6 @@
   background-color: #fff;
   margin: auto;
   width: 430px;
-  height: 330px;
   padding: 0 30px 30px;
   border-radius: 10px;
   position: relative;
@@ -30,17 +29,17 @@
 }
 
 .modal__preview-container {
-  background: none;
-  padding: 0;
-  height: 500px;
+  /* background: none; */
+  /* padding: 0; */
+  /* height: 500px; */
   margin: auto;
-  border: none;
+  /* border: none; */
   position: relative;
 }
 
 .modal__preview-image {
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 75vw;
+  max-height: 75vh;
 }
 
 .modal__container_delete {
@@ -192,14 +191,13 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  position: absolute;
   transition: opacity 0.3s;
   top: 33px;
   left: 0;
 }
 
 .modal__submit-button {
-  width: 156px;
+  width: 358px;
   padding: 18px 0;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;

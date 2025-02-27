@@ -6,7 +6,7 @@ export default class PopupWithConfirmation extends Popup {
     if (!popupElement) {
       throw new Error(`Element with selector "${popupSelector}" not found.`);
     }
-    super({ popupSelector: popupSelector });
+    super({ popupSelector });
     this._popupform = popupElement.querySelector(".modal__form");
     this._submitButton = this._popupform.querySelector(".modal__submit-button");
     this._submitButtonText = this._submitButton.textContent;

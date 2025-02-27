@@ -244,7 +244,7 @@ function handleAddCardFormSubmit(inputValues) {
       addFormValidator.disableButton();
       addCardModal.close();*/
 
-      addCardFormValidator._disableButton();
+      addCardFormValidator.disableButton();
       addCardFormElement.reset();
       addCardModal.close();
     })
@@ -310,7 +310,7 @@ profileEditButton.addEventListener("click", () => {
   popupWithEditProfileForm.open();
 });
 
-const avatarForm = document.querySelector(".profile__avatar-modal");
+const avatarForm = document.querySelector("#avatar-edit-form");
 
 const avatarFormValidator = new FormValidator(config, avatarForm);
 avatarFormValidator.enableValidation();
