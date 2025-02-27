@@ -121,7 +121,7 @@
 
 .modal__button {
   width: 100%; /* Make the button width 100% of its container */
-  padding: 10px; /* Adjust padding to match the input */
+  padding: 16px; /* Adjust padding to match the input */
   box-sizing: border-box; /* Ensure padding is included in the width */
   border: 1px solid #ccc; /* Add border to the button */
   border-radius: 4px; /* Add border radius to match the input */
