@@ -2,13 +2,13 @@ import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
   constructor({ popupSelector }) {
-    const popupElement = document.querySelector(popupSelector);
-    if (!popupElement) {
-      throw new Error(`Element with selector "${popupSelector}" not found.`);
-    }
+    //const popupElement = document.querySelector(popupSelector);
+    //if (!popupElement) {
+      //throw new Error(`Element with selector "${popupSelector}" not found.`);
+    //}
     super({ popupSelector });
-    this._popupform = popupElement.querySelector(".modal__form");
-    this._submitButton = this._popupform.querySelector(".modal__submit-button");
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._submitButton = this._popupForm.querySelector(".modal__submit-button");
     this._submitButtonText = this._submitButton.textContent;
     this._handleForSubmit = null;
   }
@@ -26,7 +26,7 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   setEventListeners() {
-    this._popupform.addEventListener("submit", (e) => {
+    this._popupForm.addEventListener("submit", (e) => {
       e.preventDefault();
       if (typeof this._handleForSubmit === "function") {
         this._handleForSubmit();

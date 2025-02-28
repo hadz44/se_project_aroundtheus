@@ -320,7 +320,7 @@ addCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
 
-const avatarButton = document.querySelector(".avatar__button");
+const avatarButton = document.querySelector(".profile__avatar");
 avatarButton.addEventListener("click", () => {
   profileAvatarModal.open();
 });
