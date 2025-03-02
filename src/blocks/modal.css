@@ -276,7 +276,7 @@
   }
 
   .modal__button {
-    /* max-width: 238px; */
+     max-width: 238px; 
     width: 100%;
     height: 46px;
     font-size: 14px;
