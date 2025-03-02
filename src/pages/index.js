@@ -337,9 +337,7 @@ profileEditFormValidator.enableValidation();
 
 
 
-deleteModalCloseButton.addEventListener("click", () => {
-  cardDeleteModal.close();
-});
+
 
 // avatarForm.addEventListener("submit", handleAvatarSubmit);
 // deleteForm.addEventListener("submit", handleDeleteSubmit);
