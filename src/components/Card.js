@@ -1,9 +1,26 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
+  constructor(
+    { name, link, _id, isLiked },
+    cardSelector,
+    handleImageClick,
+    handleDeleteClick,
+    handleLike
+  ) {
     this._name = name;
     this._link = link;
+    this._isLiked = isLiked;
+    this._id = _id;
+    this._handleLike = handleLike;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._setEventListeners = this._setEventListeners.bind(this);
+    this.isLiked = isLiked;
+  }
+  
+  setIsLiked(isLiked) {
+    this._isLiked = isLiked;
+    this._handleLikeButton();
   }
 
   _setEventListeners() {
@@ -16,13 +33,18 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._handleDeleteCard();
+        this._handleDeleteClick(this);
       });
 
     this._cardElement
-      .querySelector(".card__image")
+      .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        this._handleImageClick({ name: this._name, link: this._link });
+        this._handleLike(this);
+        this._handleLikeButton();
+      });
+
+      this._cardElement.querySelector(".card__image").addEventListener("click", () => {
+        this._handleImageClick({name: this._name, link: this._link});
       });
   }
 
@@ -32,7 +54,7 @@ export default class Card {
       .classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteCard() {
+  handleDeleteButton() {
     this._cardElement.remove();
   }
 
@@ -45,8 +67,12 @@ export default class Card {
     const cardTitle = this._cardElement.querySelector(".card__title");
     cardImage.src = this._link;
     cardImage.alt = this._name;
+    cardImage.id = this._id;
+    cardImage.isLiked = this._isLiked;
     cardTitle.textContent = this._name;
-
+    if (this._isLiked){
+    this._handleLikeButton();
+    }
     this._setEventListeners();
 
     return this._cardElement;
